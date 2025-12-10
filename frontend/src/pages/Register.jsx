@@ -55,31 +55,59 @@ export default function Register() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#f5f5f5',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       }}
     >
       <div
         style={{
           backgroundColor: 'white',
-          padding: '2rem',
-          borderRadius: '8px',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          padding: '2.5rem',
+          borderRadius: '16px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
           width: '100%',
-          maxWidth: '400px',
+          maxWidth: '420px',
         }}
       >
-        <h2 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-          Create Account
-        </h2>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <div
+            style={{
+              width: '60px',
+              height: '60px',
+              backgroundColor: '#667eea',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: '0 auto 1rem',
+              fontSize: '2rem',
+            }}
+          >
+            ✓
+          </div>
+          <h2
+            style={{
+              margin: '0 0 0.5rem 0',
+              fontSize: '1.75rem',
+              color: '#1a202c',
+            }}
+          >
+            Create Account
+          </h2>
+          <p style={{ color: '#718096', fontSize: '0.95rem' }}>
+            Join Task Manager today
+          </p>
+        </div>
 
         {error && (
           <div
             style={{
-              padding: '0.75rem',
-              backgroundColor: '#fee',
-              color: '#c33',
-              borderRadius: '4px',
-              marginBottom: '1rem',
+              padding: '1rem',
+              backgroundColor: '#fff5f5',
+              color: '#c53030',
+              borderRadius: '8px',
+              marginBottom: '1.5rem',
+              border: '1px solid #feb2b2',
+              fontSize: '0.9rem',
             }}
           >
             {error}
@@ -87,67 +115,92 @@ export default function Register() {
         )}
 
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '1rem' }}>
-            <label
-              style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                fontWeight: '500',
-              }}
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-              style={{
-                width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #ddd',
-                borderRadius: '4px',
-                fontSize: '1rem',
-              }}
-            />
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '1rem',
+              marginBottom: '1.25rem',
+            }}
+          >
+            <div>
+              <label
+                style={{
+                  display: 'block',
+                  marginBottom: '0.5rem',
+                  fontWeight: '600',
+                  color: '#2d3748',
+                  fontSize: '0.9rem',
+                }}
+              >
+                First Name
+              </label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+                placeholder="John"
+                style={{
+                  width: '100%',
+                  padding: '0.875rem',
+                  border: '2px solid #e2e8f0',
+                  borderRadius: '8px',
+                  fontSize: '1rem',
+                  transition: 'all 0.2s',
+                  outline: 'none',
+                }}
+                onFocus={(e) => (e.target.style.borderColor = '#667eea')}
+                onBlur={(e) => (e.target.style.borderColor = '#e2e8f0')}
+              />
+            </div>
+
+            <div>
+              <label
+                style={{
+                  display: 'block',
+                  marginBottom: '0.5rem',
+                  fontWeight: '600',
+                  color: '#2d3748',
+                  fontSize: '0.9rem',
+                }}
+              >
+                Last Name
+              </label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+                placeholder="Doe"
+                style={{
+                  width: '100%',
+                  padding: '0.875rem',
+                  border: '2px solid #e2e8f0',
+                  borderRadius: '8px',
+                  fontSize: '1rem',
+                  transition: 'all 0.2s',
+                  outline: 'none',
+                }}
+                onFocus={(e) => (e.target.style.borderColor = '#667eea')}
+                onBlur={(e) => (e.target.style.borderColor = '#e2e8f0')}
+              />
+            </div>
           </div>
 
-          <div style={{ marginBottom: '1rem' }}>
+          <div style={{ marginBottom: '1.25rem' }}>
             <label
               style={{
                 display: 'block',
                 marginBottom: '0.5rem',
-                fontWeight: '500',
+                fontWeight: '600',
+                color: '#2d3748',
+                fontSize: '0.9rem',
               }}
             >
-              Last Name
-            </label>
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-              style={{
-                width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #ddd',
-                borderRadius: '4px',
-                fontSize: '1rem',
-              }}
-            />
-          </div>
-
-          <div style={{ marginBottom: '1rem' }}>
-            <label
-              style={{
-                display: 'block',
-                marginBottom: '0.5rem',
-                fontWeight: '500',
-              }}
-            >
-              Email
+              Email Address
             </label>
             <input
               type="email"
@@ -155,13 +208,18 @@ export default function Register() {
               value={formData.email}
               onChange={handleChange}
               required
+              placeholder="you@example.com"
               style={{
                 width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #ddd',
-                borderRadius: '4px',
+                padding: '0.875rem',
+                border: '2px solid #e2e8f0',
+                borderRadius: '8px',
                 fontSize: '1rem',
+                transition: 'all 0.2s',
+                outline: 'none',
               }}
+              onFocus={(e) => (e.target.style.borderColor = '#667eea')}
+              onBlur={(e) => (e.target.style.borderColor = '#e2e8f0')}
             />
           </div>
 
@@ -170,7 +228,9 @@ export default function Register() {
               style={{
                 display: 'block',
                 marginBottom: '0.5rem',
-                fontWeight: '500',
+                fontWeight: '600',
+                color: '#2d3748',
+                fontSize: '0.9rem',
               }}
             >
               Password
@@ -181,13 +241,18 @@ export default function Register() {
               value={formData.password}
               onChange={handleChange}
               required
+              placeholder="At least 6 characters"
               style={{
                 width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #ddd',
-                borderRadius: '4px',
+                padding: '0.875rem',
+                border: '2px solid #e2e8f0',
+                borderRadius: '8px',
                 fontSize: '1rem',
+                transition: 'all 0.2s',
+                outline: 'none',
               }}
+              onFocus={(e) => (e.target.style.borderColor = '#667eea')}
+              onBlur={(e) => (e.target.style.borderColor = '#e2e8f0')}
             />
           </div>
 
@@ -196,32 +261,45 @@ export default function Register() {
             disabled={loading}
             style={{
               width: '100%',
-              padding: '0.75rem',
-              backgroundColor: '#4CAF50',
+              padding: '0.875rem',
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
               color: 'white',
               border: 'none',
-              borderRadius: '4px',
+              borderRadius: '8px',
               fontSize: '1rem',
-              fontWeight: '500',
+              fontWeight: '600',
               cursor: loading ? 'not-allowed' : 'pointer',
               opacity: loading ? 0.7 : 1,
+              transition: 'transform 0.2s, opacity 0.2s',
+              boxShadow: '0 4px 12px rgba(102, 126, 234, 0.4)',
             }}
+            onMouseOver={(e) =>
+              !loading && (e.target.style.transform = 'translateY(-2px)')
+            }
+            onMouseOut={(e) => (e.target.style.transform = 'translateY(0)')}
           >
-            {loading ? 'Creating account...' : 'Register'}
+            {loading ? 'Creating account...' : 'Create Account'}
           </button>
         </form>
 
-        <p style={{ marginTop: '1rem', textAlign: 'center', color: '#666' }}>
+        <p
+          style={{
+            marginTop: '1.5rem',
+            textAlign: 'center',
+            color: '#718096',
+            fontSize: '0.9rem',
+          }}
+        >
           Already have an account?{' '}
           <Link
             to="/login"
             style={{
-              color: '#4CAF50',
+              color: '#667eea',
               textDecoration: 'none',
-              fontWeight: '500',
+              fontWeight: '600',
             }}
           >
-            Login
+            Sign in
           </Link>
         </p>
       </div>
