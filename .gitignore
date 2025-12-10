@@ -2,3 +2,6 @@ node_modules/
 .env
 .DS_Store
 *.log
+
+
+# token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiYW50b25pb0B0ZXN0LmNvbSIsImlhdCI6MTc2NTM3MDYwOCwiZXhwIjoxNzY1OTc1NDA4fQ.TJQ74Ff7gNr30wHKaqAqQaPRZDipiSJhaUodk8jFf_E
