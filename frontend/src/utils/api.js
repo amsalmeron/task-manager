@@ -1,7 +1,8 @@
 // frontend/src/utils/api.js
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5001/api'
+// const API_URL = 'http://localhost:5001/api'
+const API_URL = 'https://task-manager-production-a7ba.up.railway.app/api'
 
 // Create axios instance
 const api = axios.create({
